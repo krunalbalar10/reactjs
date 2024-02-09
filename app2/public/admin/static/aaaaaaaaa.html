@@ -2,160 +2,50 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
-    <link rel="shortcut icon" type="image/png" href="../assets/images/logos/favicon.png" />
-    <link rel="stylesheet" href="../assets/css/styles.min.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/favicon.png" />
+  <link rel="stylesheet" href="../assets/css/styles.min.css" />
 </head>
 
-<body class="bg-light-indigo">
-    <!--  Body Wrapper -->
-    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
-        data-sidebar-position="fixed" data-header-position="fixed">
-        <!-- Sidebar Start -->
-        <aside class="left-sidebar bg-dark-light">
-            <!-- Sidebar scroll-->
-            <div>
-                <div class="brand-logo d-flex align-items-center justify-content-between">
-                    <h3 class="text-white">
-                        <i class="fa-brands fa-shopify"></i> Online Shop</h3>
-                    <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
-                        <i class="ti ti-x fs-8"></i>
-                    </div>
-                </div>
-                <!-- Sidebar navigation-->
-                <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
-                    <ul id="sidebarnav">
-                        <li class="sidebar-item">
-                            <a class="sidebar-link text-white" href="admin-home.html" aria-expanded="false">
-                                <i class="fa fa-home"></i>
-                                <span class="hide-menu">Home</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link text-white" href="admin-category.html" aria-expanded="false">
-                                <i class="fa-solid fa-tags"></i>
-                                <span class="hide-menu">Category</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link text-white" href="admin-product.html" aria-expanded="false">
-                                <i class="fa-solid fa-gifts"></i>
-                                <span class="hide-menu">Products</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link text-white" href="admin-orders.html" aria-expanded="false">
-                                <i class="fa-solid fa-box"></i>
-                                <span class="hide-menu">Orders</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link text-white" href="admin-users.html" aria-expanded="false">
-                                <i class="fa-solid fa-users"></i>
-                                <span class="hide-menu">Users</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link text-white" href="admin-change-password.html" aria-expanded="false">
-                                <i class="fa-solid fa-gear"></i>
-                                <span class="hide-menu">Change Password</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link text-white" href="" aria-expanded="false">
-                                <i class="fa-solid fa-right-from-bracket"></i>
-                                <span class="hide-menu">Logout</span>
-                            </a>
-                        </li>
-
-                    </ul>
-
-                </nav>
-                <!-- End Sidebar navigation -->
+<body>
+  <!--  Body Wrapper -->
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+    <div
+      class="position-relative overflow-hidden radial-gradient min-vh-100 d-flex align-items-center justify-content-center">
+      <div class="d-flex align-items-center justify-content-center w-100">
+        <div class="row justify-content-center w-100">
+          <div class="col-md-8 col-lg-6 col-xxl-3">
+            <div class="card mb-0">
+              <div class="card-body">
+                <h3 class="text-center text-primary">Online Shop app</h3>
+                <p class="text-center">Admin</p>
+                <form>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  </div>
+                  <div class="mb-4">
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1">
+                  </div>
+                
+                  <input type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2" value="Sign in" />
+                  <p class="text-end">
+                        <a href="admin-forgot-password.html">Forgot Password?</a>
+                  </p>
+                </form>
+              </div>
             </div>
-            <!-- End Sidebar scroll-->
-        </aside>
-        <!--  Sidebar End -->
-        <!--  Main wrapper -->
-        <div class="body-wrapper">
-            <!--  Header Start -->
-            <header class="app-header">
-                <nav class="navbar navbar-expand-lg navbar-light">
-                    <ul class="navbar-nav">
-                        <li class="nav-item d-block d-xl-none">
-                            <a class="nav-link sidebartoggler nav-icon-hover" id="headerCollapse"
-                                href="javascript:void(0)">
-                                <i class="ti ti-menu-2"></i>
-                            </a>
-                        </li>
-                    </ul>   
-                </nav>
-            </header>
-            <!--  Header End -->
-            <div class="container-fluid">
-                <div class="card shadow">
-                    <div class="card-header d-flex justify-content-between text-bg-primary">
-                        <h3 class="mb-1 text-white">Product</h3>
-                        <a href="admin-product.html" class="btn btn-light">back</a>
-                    </div>
-                    <div class="card-body ">
-                        <h5 class="border-bottom pb-2">IPhone - 15</h5>
-
-                        <div class="row">
-                            <div class="col-sm-6 col-12">
-                                <img src="https://picsum.photos/300" class="img-fluid" />
-                            </div>
-                            <div class="col-sm-6 col-12">
-                                <table class="table table-striped">
-                                    <tr>
-                                        <td width="40%">ID</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td width="40%">Category</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td width="40%">Price</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td width="40%">Stock</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td width="40%">Weight</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td width="40%">Size</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td width="40%">is Live</td>
-                                        <td></td>
-                                    </tr>
-                                    
-                                </table>
-                            </div>
-                            <div class="col-12">
-                                <h5 class="border-bottom pb-2">Detail</h5>
-                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat voluptatem deserunt, maiores soluta repellat neque alias autem est ducimus, voluptatum modi id veniam, fuga possimus molestias praesentium tempore repudiandae tenetur.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
     </div>
-    <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
-    <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../assets/js/sidebarmenu.js"></script>
-    <script src="../assets/js/app.min.js"></script>
-    <script src="../assets/libs/simplebar/dist/simplebar.js"></script>
-    <script src="https://kit.fontawesome.com/20994dd270.js" crossorigin="anonymous"></script>
+  </div>
+  <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
