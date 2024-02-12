@@ -126,84 +126,43 @@
                 <div class="container-fluid p-0">
 
                     <div style="background-color: #2e3f51;" class="d-flex justify-content-between my-2">
-                        <h1 class="h3 p-3 text-white">Products</h1>
-                        <a href="admin-products.html" class="btn btn-light m-3">Back&nbsp;<i
-                                class="fa-solid fa-arrow-left"></i></a>
+                        <h1 class="h3 p-3 text-white">Orderes</h1>
+                       
                     </div>
 
-                    <div class="card">
-                        <div class="card-header">
-                            <h4>
-                                 Edit Product
-                                <hr width="40%" />
-                            </h4>
-                        </div>
-                        <div class="card-body">
-                            <form action="">
-                                <div class="row">
+                    <div class="row">
+                        <div class="col-12">
+                            <table class="table table-bordered ">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Bill Date</th>
+                                        <th>Price</td>
+                                        <th>Status</td>
+                                        <th>Delivery Details</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Sun 11-Feb-2024</td>
+                                        <td>1500 Rs.</td>
+                                        <td>Confirmed</td>
+                                        <td>Krunal Balar <br>
+                                            Bhavnagar-364001</td>
+                                        <td width="15%">
+                                            <a href="admin-order-detail.html">
+                                                <i class="fa fa-eye fa-2x"></i>
+                                            </a>
+                                        </td>
 
-                                    <!-- First Row -->
-                                    <div class="col-md-3">
-                                        <label for="categoryid" class="form-label mb-2">Change Category</label>
-                                        <select class="form-select" name="categoryid" id="categoryid" required
-                                            autofocus>
-                                            <option value="1">Category 1</option>
-                                            <option value="2">Category 2</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-3 mb-5">
-                                        <label for="title" class="form-label mb-2">Edit Title</label>
-                                        <input type="text" name="title" id="title" class="form-control" required>
-                                    </div>
-                                    <div class="col-md-3 mb-5">
-                                        <label for="stock" class="form-label mb-2">Edit Stock</label>
-                                        <input type="number" name="stock" id="stock" class="form-control" required>
-                                    </div>
-                                    <div class="col-md-3 mb-5">
-                                        <label for="price" class="form-label mb-2">Edit Price</label>
-                                        <input type="number" name="price" id="price" class="form-control" required>
-                                    </div>
-                                    <!-- Second Row -->
-                                    <div class="col-md-4 mb-5">
-                                        <label for="weight" class="form-label mb-2">Edit Weight</label>
-                                        <input type="text" class="form-control" id="weight" name="weight" required>
-                                    </div>
-                                    <div class="col-md-4 mb-5">
-                                        <label for="size" class="form-label mb-2">Edit Size</label>
-                                        <input type="text" class="form-control" id="size" name="size" required>
-                                    </div>
-                                    <div class="col-md-4 mb-5">
-                                        <label for="photo" class="form-label mb-2">Change Photo</label>
-                                        <input type="file" class="form-control" id="photo" name="photo" required>
-                                    </div>
-                                    <!-- third row -->
-                                    <div class="col-md-2">
-                                        <label class="form-check-label d-block mb-2">Is Live</label>
-                                        <div class="form-check form-check">
-                                            <input class="form-check-input" type="radio" name="islive" id="yes"
-                                                value="yes" required>
-                                            <label class="form-check-label" for="yes">Yes</label>
-                                        </div>
-                                        <div class="form-check form-check">
-                                            <input class="form-check-input" type="radio" name="islive" id="no"
-                                                value="no" required>
-                                            <label class="form-check-label" for="no">No</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <label for="detail" class="form-label mb-2">Edit Detail</label>
-                                        <textarea class="form-control" id="detail" name="detail" rows="3"
-                                            required></textarea>
-                                    </div>
-                                    <!-- Buttons -->
-                                    <div class="col-md-3 mt-2">
-                                        <button type="submit" class="btn btn-primary mt-4 w-100">Save Changes</button>
-                                        <button type="reset" class="btn btn-danger w-100 mt-1">Clear All</button>
-                                    </div>
-                                </div>
-                            </form>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
+
                 </div>
             </main>
 
