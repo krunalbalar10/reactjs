@@ -1,5 +1,7 @@
 import AdminMenu from "./AdminMenu"
 import AdminFooter from "./AdminFooter"
+import { Link } from "react-router-dom";
+
 export default function AdminAddNewProduct() {
     return (
         <div className="wrapper">
@@ -11,7 +13,7 @@ export default function AdminAddNewProduct() {
                         <div className="container-fluid p-0">
                             <div style={{ "background-color": "#2e3f51" }} className="d-flex justify-content-between my-2">
                                 <h1 className="h3 p-3 text-white">Products</h1>
-                                <a href="admin-products.html" className="btn btn-light m-3">Back&nbsp;<i className="fa-solid fa-arrow-left" /></a>
+                                <Link to="/products" className="btn btn-light m-3">Back&nbsp;<i className="fa-solid fa-arrow-left" /></Link>
                             </div>
                             <div className="card shadow">
                                 <div className="card-header">

@@ -1,5 +1,7 @@
 import AdminMenu from "./AdminMenu"
 import AdminFooter from "./AdminFooter"
+import { Link } from "react-router-dom";
+
 export default function AdminAddNewCategory() {
     return (
         <div className="wrapper">
@@ -12,7 +14,7 @@ export default function AdminAddNewCategory() {
                     <div className="container-fluid p-0">
                         <div style={{ "background-color": "#2e3f51" }} className="d-flex justify-content-between my-2">
                             <h1 className="h3 p-3 text-white">Category</h1>
-                            <a href="admin-category.html" className="btn btn-light m-3">Back&nbsp;<i className="fa-solid fa-arrow-left" /></a>
+                            <Link to="/category" className="btn btn-light m-3">Back&nbsp;<i className="fa-solid fa-arrow-left" /></Link>
                         </div>
                         <div className="card">
                             <div className="card-header pt-4">

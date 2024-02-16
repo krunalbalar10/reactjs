@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function AdminForgotPassword() {
     return (
         <div className="wrapper">
@@ -23,7 +25,7 @@ export default function AdminForgotPassword() {
                     <input type="email" className="btn btn-primary px-0" Value="Send Email" />
                   </div>
                   <div className="text-end my-2">
-                    <a href="admin-login.html">Login?</a>
+                    <Link to="/">Login?</Link>
                   </div>
                 </form>
               </div>

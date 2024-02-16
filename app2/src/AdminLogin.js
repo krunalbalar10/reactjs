@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function AdminLogin() {
     return (
         <div className="wrapper">
@@ -27,7 +29,7 @@ export default function AdminLogin() {
                                                 <button type="submit" className="btn btn-primary">Login</button>
                                             </div>
                                             <div className="mb-4 text-end">
-                                                <a href="admin-forgot-password">Forget Password?</a>
+                                                <Link to="/forgot-password">Forget Password?</Link>
                                             </div>
                                         </form>
                                     </div>
@@ -41,8 +43,8 @@ export default function AdminLogin() {
                         <div className="row text-muted">
                             <div className="col-6 text-start">
                                 <p className="mb-0">
-                                    <i className="fa-solid fa-store" />&nbsp;<a className="text-muted" href="admin-home.html" target="_blank"><strong>Online
-                                        Store</strong></a> ©
+                                    <i className="fa-solid fa-store" />&nbsp;<Link className="text-muted" to="/home" target="_blank"><strong>Online
+                                        Store</strong></Link> ©
                                 </p>
                             </div>
                         </div>

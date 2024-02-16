@@ -1,5 +1,7 @@
 import AdminMenu from "./AdminMenu"
 import AdminFooter from "./AdminFooter"
+import { Link } from "react-router-dom";
+
 export default function AdminUsers() {
     return (
         <div className="wrapper">
@@ -30,9 +32,9 @@ export default function AdminUsers() {
                                             <td>krunal@gmail.com</td>
                                             <td>10101101010</td>
                                             <td>
-                                                <a href="admin-orders.html">
+                                                <Link to="/orders">
                                                     <i className="fa fa-gift fa-2x" />
-                                                </a>
+                                                </Link>
                                             </td>
                                         </tr>
                                     </tbody>

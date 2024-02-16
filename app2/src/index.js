@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import AdminLogin from './AdminLogin';
 import AdminForgotPassword from './AdminForgotPassword';
@@ -12,9 +13,36 @@ import AdminEditProduct from './AdminEditProduct';
 import AdminHome from './AdminHome';
 import AdminOrderDetails from './AdminOrderDetails';
 import AdminOrders from './AdminOrders';
+import AdminProducts from './AdminProducts';
 import AdminUsers from './AdminUsers';
 import AdminViewProduct from './AdminViewProduct';
+let NoPageFound = () => <h1>No Such Page Exist , Please Try Again!</h1>
+
+function MyRouter() {
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route index path='/' element={<AdminLogin />} />
+                <Route path='/forgot-password' element={<AdminForgotPassword/>}/>
+                <Route path='/add-new-category' element={<AdminAddNewCategory />} />
+                <Route path='/add-new-product' element={<AdminAddNewProduct />} />
+                <Route path='/category' element={<AdminCategory />} />
+                <Route path='/change-password' element={<AdminChangePassword />} />
+                <Route path='/edit-category' element={<AdminEditCategory />} />
+                <Route path='/edit-product' element={<AdminEditProduct />} />
+                <Route path='/home' element={<AdminHome />} />
+                <Route path='/order-details' element={<AdminOrderDetails />} />
+                <Route path='/orders' element={<AdminOrders />} />
+                <Route path='/products' element={<AdminProducts />} />
+                <Route path='/users' element={<AdminUsers />} />
+                <Route path='/view-product' element={<AdminViewProduct />} />
+                <Route path='*' element={<NoPageFound />} />
+            </Routes>
+        </BrowserRouter>
+    );
+}
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<AdminViewProduct/>);
+root.render(<MyRouter />);
 
 

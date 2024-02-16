@@ -1,45 +1,47 @@
+import { Link } from "react-router-dom";
+
 export default function AdminMenu () {
     return(
         <nav id="sidebar" className="sidebar js-sidebar">
                 <div className="sidebar-content js-simplebar">
-                    <a className="sidebar-brand" href="index.html">
+                    <Link className="sidebar-brand" to="/home">
                         <i className="fa-solid fa-store" />&nbsp;<span className="align-middle">Online Store</span>
-                    </a>
+                    </Link>
                     <ul className="sidebar-nav">
                         <li className="sidebar-item">
-                            <a className="sidebar-link" href="admin-home.html">
+                            <Link className="sidebar-link" to="/home">
                                 <i className="fa-solid fa-house" />&nbsp;&nbsp;&nbsp; <span className="align-middle">Home</span>
-                            </a>
+                            </Link>
                         </li>
                         <li className="sidebar-item">
-                            <a className="sidebar-link" href="admin-category.html">
+                            <Link className="sidebar-link" to="/category">
                                 <i className="fa-solid fa-tags" />&nbsp;&nbsp;&nbsp; <span className="align-middle">Category</span>
-                            </a>
+                            </Link>
                         </li>
                         <li className="sidebar-item">
-                            <a className="sidebar-link" href="admin-products.html">
+                            <Link className="sidebar-link" to="/products">
                                 <i className="fa-solid fa-gifts" /> &nbsp;&nbsp;<span className="align-middle">Products</span>
-                            </a>
+                            </Link>
                         </li>
                         <li className="sidebar-item">
-                            <a className="sidebar-link" href="admin-orders.html">
+                            <Link className="sidebar-link" to="/orders">
                                 <i className="fa-solid fa-box" />&nbsp;&nbsp;&nbsp; <span className="align-middle">Orders</span>
-                            </a>
+                            </Link>
                         </li>
                         <li className="sidebar-item">
-                            <a className="sidebar-link" href="admin-users.html">
+                            <Link className="sidebar-link" to="/users">
                                 <i className="fa-solid fa-user" />&nbsp;&nbsp;&nbsp; <span className="align-middle">Users</span>
-                            </a>
+                            </Link>
                         </li>
                         <li className="sidebar-item">
-                            <a className="sidebar-link" href="admin-change-password.html">
+                            <Link className="sidebar-link" to="/change-password">
                                 <i className="fa-solid fa-gear" />&nbsp;&nbsp;&nbsp; <span className="align-middle">Change Password</span>
-                            </a>
+                            </Link>
                         </li>
                         <li className="sidebar-item">
-                            <a className="sidebar-link" href="#">
+                            <Link className="sidebar-link" to="/#">
                                 <i className="fa-solid fa-right-from-bracket" /> &nbsp;&nbsp;&nbsp;<span className="align-middle">Log Out</span>
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                 </div>
