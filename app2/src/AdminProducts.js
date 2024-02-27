@@ -1,8 +1,78 @@
 import AdminMenu from "./AdminMenu"
 import AdminFooter from "./AdminFooter"
+import { useEffect, useState } from "react";
+import { ToastContainer } from "react-toastify";
+import showError, { NetworkError } from "./toast-message";
 import { Link } from "react-router-dom";
+import ApiURL from "./Adminapi";
 
 export default function AdminProducts() {
+
+    let displayProducts = function (item) {
+        return (
+            <tr>
+                <td>{item.id}</td>
+                <td>{item.title} <br />
+                    <span>{item.categorytitle}</span>
+                </td>
+                <td>
+                    {/* we can use getimageurl function repeat code as we have used in admin view product */}
+                    <img src={"https://theeasylearnacademy.com/shop/images/product/" + item.photo} className="img-fluid" alt />
+                </td>
+                <td>{item.price}</td>
+                <td>{item.stock}</td>
+                <td>{(item.islive === 1)?'Yes':'No'}</td>
+                <td width="20%">
+                    {/* dynamic route because it has input (query string) */}
+                    <Link to={"/view-product/" + item.id}>
+                        <i className="fa fa-eye fa-2x" />
+                    </Link>&nbsp;
+                    <Link to="/edit-product">
+                        <i className="fa fa-pencil fa-2x" />
+                    </Link>&nbsp;
+                    <Link to="#">
+                        <i className="fa fa-trash fa-2x" />
+                    </Link>
+                </td>
+            </tr>
+        )
+    }
+
+    let [product, setProduct] = useState([]);
+
+    useEffect(() => {
+
+        if (product.length === 0) {
+            let apiAddress = ApiURL() + 'product.php';
+            fetch(apiAddress)
+
+                .then((response) => response.json())
+
+                .then((data) => {
+                    console.log(data);
+
+                    let error = data[0]['error']
+
+                    if (error !== 'no')
+                        showError(error);
+
+                    else if (data[1]['total'] === 0)
+                        showError('No product found');
+
+                    else {
+                        data.splice(0, 2);
+                        setProduct(data);
+                    }
+
+                })
+
+                .catch((error) => {
+                    console.log(error);
+                    NetworkError();
+                })
+        }
+    })
+
     return (
         <div className="wrapper">
             <AdminMenu />
@@ -10,6 +80,7 @@ export default function AdminProducts() {
                 <nav className="navbar navbar-expand navbar-light navbar-bg">
 
                 </nav>
+                <ToastContainer />
                 <main className="content">
                     <div className="container-fluid p-0">
                         <div style={{ "background-color": "#2e3f51" }} className="d-flex justify-content-between my-2">
@@ -23,7 +94,7 @@ export default function AdminProducts() {
                                         <tr>
                                             <th>ID</th>
                                             <th>Title</th>
-                                            <th>Photo
+                                            <th width='20%'>Photo
                                             </th><th>Price
                                             </th><th>Stock
                                             </th><th>Is Live</th>
@@ -31,29 +102,7 @@ export default function AdminProducts() {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Shoes <br />
-                                                <span>(Formal)</span>
-                                            </td>
-                                            <td>
-                                                <img src="https:/picsum.photos/150" className="img-fluid" alt />
-                                            </td>
-                                            <td>1500 Rs.</td>
-                                            <td>20 Qty.</td>
-                                            <td>Yes</td>
-                                            <td width="15%">
-                                                <Link to="/view-product">
-                                                    <i className="fa fa-eye fa-2x" />
-                                                </Link>&nbsp;
-                                                <Link to="/edit-product">
-                                                    <i className="fa fa-pencil fa-2x" />
-                                                </Link>&nbsp;
-                                                <Link to="#">
-                                                    <i className="fa fa-trash fa-2x" />
-                                                </Link>
-                                            </td>
-                                        </tr>
+                                        {product.map((item) => displayProducts(item))}
                                     </tbody>
                                 </table>
                             </div>

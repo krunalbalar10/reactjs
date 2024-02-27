@@ -31,11 +31,12 @@ function MyRouter() {
                 <Route path='/edit-category' element={<AdminEditCategory />} />
                 <Route path='/edit-product' element={<AdminEditProduct />} />
                 <Route path='/home' element={<AdminHome />} />
-                <Route path='/order-details' element={<AdminOrderDetails />} />
+                <Route path='/order-details/:orderid' element={<AdminOrderDetails />} />
                 <Route path='/orders' element={<AdminOrders />} />
                 <Route path='/products' element={<AdminProducts />} />
                 <Route path='/users' element={<AdminUsers />} />
-                <Route path='/view-product' element={<AdminViewProduct />} />
+                {/* we can give any name after : like here :productid */}
+                <Route path='/view-product/:productid' element={<AdminViewProduct />} />
                 <Route path='*' element={<NoPageFound />} />
             </Routes>
         </BrowserRouter>

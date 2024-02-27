@@ -1,8 +1,61 @@
 import AdminMenu from "./AdminMenu"
 import AdminFooter from "./AdminFooter"
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import ApiURL from "./Adminapi";
+import { ToastContainer } from "react-toastify";
+import showError from "./toast-message";
+import axios from "axios";
 
 export default function AdminOrders() {
+
+    let displayOrders = function (item) {
+        return (
+            <tr>
+                <td>{item.id}</td>
+                <td>{item.billdate}</td>
+                <td>{item.amount}</td>
+                <td>{item.orderstatus}</td>
+                <td>{item.fulllname} <br />
+                    {item.city}-{item.pincode}</td>
+                <td width="15%">
+                    <Link to={"/order-details/" + item.id}>
+                        <i className="fa fa-eye fa-2x" />
+                    </Link>
+                </td>
+            </tr>
+        )
+    }
+
+    let [orders, setOrders] = useState([]);
+
+    useEffect(() => {
+        let apiAddress = ApiURL() + "orders.php";
+
+        if (orders.length === 0) {
+            axios({
+                method: 'get',
+                responseType: 'json',
+                url: apiAddress
+            }).then((response) => {
+                console.log(response);
+                let error = response.data[0]['error'];
+                if (error !== 'no')
+                    showError(error)
+                else if (response.data[1]['total'] === 0)
+                    showError('No orders Found')
+                else {
+                    response.data.splice(0, 2);
+                    setOrders(response.data)
+                }
+            }).catch((error) => {
+                console.log(error.code);
+                if (error.code === 'ERR_NETWORK')
+                    showError("Either internet is switch off or api is not available");
+            })
+        }
+
+    })
     return (
         <div className="wrapper">
             <AdminMenu />
@@ -10,6 +63,7 @@ export default function AdminOrders() {
                 <nav className="navbar navbar-expand navbar-light navbar-bg">
 
                 </nav>
+                <ToastContainer />
                 <main className="content">
                     <div className="container-fluid p-0">
                         <div style={{ "background-color": "#2e3f51" }} className="d-flex justify-content-between my-2">
@@ -29,19 +83,7 @@ export default function AdminOrders() {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Sun 11-Feb-2024</td>
-                                            <td>1500 Rs.</td>
-                                            <td>Confirmed</td>
-                                            <td>Krunal Balar <br />
-                                                Bhavnagar-364001</td>
-                                            <td width="15%">
-                                                <Link to="/order-details">
-                                                    <i className="fa fa-eye fa-2x" />
-                                                </Link>
-                                            </td>
-                                        </tr>
+                                            {orders.map((item) => displayOrders(item))}
                                     </tbody>
                                 </table>
                             </div>
