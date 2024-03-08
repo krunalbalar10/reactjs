@@ -12,3 +12,5 @@ export function getImageUrl() {
     return getUrl() + "images/";
 }
 
+// name of the cookie file to be use everywhere
+export const COOKIENAME = ['theeasylearn'];

@@ -3,10 +3,35 @@ import AdminMenu from "./AdminMenu"
 import AdminFooter from "./AdminFooter"
 import { useEffect, useState } from "react";
 import { ToastContainer } from 'react-toastify';
-import showError, { NetworkError } from "./toast-message";
+import showError, { NetworkError, showMessage } from "./toast-message";
 import ApiURL from "./Adminapi";
+import axios from "axios";
 
 export default function AdminCategory() {
+
+    let deleteCategory = function(id){
+        console.log(id);
+        let apiAddress = ApiURL() + 'delete_category.php?id=' + id;
+        axios({
+            method: 'get',
+            responseType: 'json',
+            url: apiAddress
+        }).then((response) => {
+            console.log(response);
+            let error = response.data[0]['error']
+            if(error !== 'no')
+             showError(error);
+            else
+            {
+                showMessage(response.data[1]['message']);
+                let temp = category.filter((item) => {
+                    if(item.id !== id)
+                       return item;
+                })
+                setCategory(temp);
+            }
+        })
+    }
 
     let DisplayCategory = function (item) {
         return (<tr>
@@ -17,10 +42,10 @@ export default function AdminCategory() {
             </td>
             <td>{(item.isLive === 1) ? 'Yes' : 'No'}</td>
             <td width="15%">
-                <Link to="/edit-category">
+                <Link to={"/edit-category/" + item.id}>
                     <i className="fa fa-pencil fa-2x" />
                 </Link>&nbsp;&nbsp;
-                <a href="#">
+                <a href="#" onClick={(e) => { e.preventDefault(); deleteCategory(item.id);}}>
                     <i className="fa fa-trash fa-2x" />
                 </a>
             </td>

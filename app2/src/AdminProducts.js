@@ -2,11 +2,37 @@ import AdminMenu from "./AdminMenu"
 import AdminFooter from "./AdminFooter"
 import { useEffect, useState } from "react";
 import { ToastContainer } from "react-toastify";
-import showError, { NetworkError } from "./toast-message";
+import showError, { NetworkError, showMessage } from "./toast-message";
 import { Link } from "react-router-dom";
 import ApiURL from "./Adminapi";
+import axios from "axios";
 
 export default function AdminProducts() {
+
+    let deleteProduct = function(id){
+        console.log(id);
+        let apiAddress = ApiURL() + 'delete_product.php?id=' + id;
+        axios({
+            method: 'get',
+            responseType: 'json',
+            url: apiAddress
+        }).then((response) => {
+            console.log(response);
+            let error = response.data[0]['error'];
+            if(error !== 'no')
+                showError(error)  
+            else
+            {
+                showMessage(response.data[1]['message']);
+                let temp = product.filter((item) => {
+                    if(item.id !== id){
+                        return item;
+                    }
+                });
+                setProduct(temp);
+            }
+        })
+    }
 
     let displayProducts = function (item) {
         return (
@@ -27,10 +53,10 @@ export default function AdminProducts() {
                     <Link to={"/view-product/" + item.id}>
                         <i className="fa fa-eye fa-2x" />
                     </Link>&nbsp;
-                    <Link to="/edit-product">
+                    <Link to={"/edit-product/" + item.id}>
                         <i className="fa fa-pencil fa-2x" />
                     </Link>&nbsp;
-                    <Link to="#">
+                    <Link to="#" onClick={(e) => {e.preventDefault(); deleteProduct(item.id);}}>
                         <i className="fa fa-trash fa-2x" />
                     </Link>
                 </td>

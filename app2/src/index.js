@@ -28,8 +28,8 @@ function MyRouter() {
                 <Route path='/add-new-product' element={<AdminAddNewProduct />} />
                 <Route path='/category' element={<AdminCategory />} />
                 <Route path='/change-password' element={<AdminChangePassword />} />
-                <Route path='/edit-category' element={<AdminEditCategory />} />
-                <Route path='/edit-product' element={<AdminEditProduct />} />
+                <Route path='/edit-category/:categoryid' element={<AdminEditCategory />} />
+                <Route path='/edit-product/:productid' element={<AdminEditProduct />} />
                 <Route path='/home' element={<AdminHome />} />
                 <Route path='/order-details/:orderid' element={<AdminOrderDetails />} />
                 <Route path='/orders' element={<AdminOrders />} />
