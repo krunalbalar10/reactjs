@@ -6,8 +6,12 @@ import ApiURL, { getImageUrl } from "./Adminapi";
 import axios from "axios";
 import showError, { NetworkError , showMessage} from "./toast-message";
 import { ToastContainer } from "react-toastify";
+import VerifyLogin from "./VerifyLogin";
 
 export default function AdminEditProduct() {
+
+    VerifyLogin();
+
     //create variable to store orderid passed as query string
     let { productid } = useParams();
     let navigate = useNavigate();

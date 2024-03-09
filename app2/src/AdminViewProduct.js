@@ -5,9 +5,12 @@ import { useEffect, useState } from "react";
 import ApiURL, { getImageUrl } from "./Adminapi";
 import { ToastContainer } from "react-toastify";
 import showError, { NetworkError } from "./toast-message";
+import VerifyLogin from "./VerifyLogin";
 
 
 export default function AdminViewProduct() {
+
+    VerifyLogin();
 
     let { productid } = useParams(); //store query string named as productid into variable
     console.log(productid);

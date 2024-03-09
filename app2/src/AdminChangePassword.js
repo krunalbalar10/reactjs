@@ -1,6 +1,10 @@
 import AdminMenu from "./AdminMenu"
 import AdminFooter from "./AdminFooter"
+import VerifyLogin from "./VerifyLogin"
 export default function AdminChangePassword() {
+
+    VerifyLogin();
+
     return (
         <div className="wrapper">
             <AdminMenu />

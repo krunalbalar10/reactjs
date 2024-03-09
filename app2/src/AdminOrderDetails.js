@@ -6,8 +6,11 @@ import { useEffect, useState } from "react";
 import ApiURL from "./Adminapi";
 import showError from "./toast-message";
 import axios from "axios";
+import VerifyLogin from "./VerifyLogin";
 
 export default function AdminOrderDetails() {
+
+    VerifyLogin();
 //create variable to store orderid passed as query string
     let {orderid} = useParams();
 

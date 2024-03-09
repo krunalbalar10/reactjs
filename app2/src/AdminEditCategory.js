@@ -6,11 +6,14 @@ import ApiURL, { getImageUrl } from "./Adminapi";
 import axios from "axios";
 import showError, { NetworkError, showMessage } from "./toast-message";
 import { ToastContainer } from "react-toastify";
+import VerifyLogin from "./VerifyLogin";
 
 export default function AdminEditCategory() {
 
-    // create a state arry
+    VerifyLogin();
+    
     let { categoryid } = useParams();
+    // create a state arry
 
     let [title, setTitle] = useState('');
     let [oldPhoto, setOldPhoto] = useState('');

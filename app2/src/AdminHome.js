@@ -2,11 +2,15 @@ import AdminMenu from "./AdminMenu"
 import AdminFooter from "./AdminFooter"
 import { useEffect, useState } from "react";
 import { ToastContainer } from 'react-toastify';
-import showError, { NetworkError, showMessage } from "./toast-message";
+import showError, { NetworkError } from "./toast-message";
 import ApiURL from "./Adminapi";
 import axios from "axios";
+import VerifyLogin from "./VerifyLogin";
+
 
 export default function AdminHome() {
+
+    VerifyLogin();
 
     let [dailySales , setDailySales] = useState('');
     let [weeklySales , setWeeklySales] = useState('');

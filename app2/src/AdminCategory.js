@@ -6,8 +6,11 @@ import { ToastContainer } from 'react-toastify';
 import showError, { NetworkError, showMessage } from "./toast-message";
 import ApiURL from "./Adminapi";
 import axios from "axios";
+import VerifyLogin from "./VerifyLogin";
 
 export default function AdminCategory() {
+
+    VerifyLogin();
 
     let deleteCategory = function(id){
         console.log(id);

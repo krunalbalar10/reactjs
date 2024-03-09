@@ -6,8 +6,11 @@ import showError, { NetworkError, showMessage } from "./toast-message";
 import { Link } from "react-router-dom";
 import ApiURL from "./Adminapi";
 import axios from "axios";
+import VerifyLogin from "./VerifyLogin";
 
 export default function AdminProducts() {
+
+    VerifyLogin();
 
     let deleteProduct = function(id){
         console.log(id);

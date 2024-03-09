@@ -6,8 +6,11 @@ import ApiURL from "./Adminapi";
 import { ToastContainer } from "react-toastify";
 import showError from "./toast-message";
 import axios from "axios";
+import VerifyLogin from "./VerifyLogin";
 
 export default function AdminOrders() {
+
+    VerifyLogin();
 
     let displayOrders = function (item) {
         return (

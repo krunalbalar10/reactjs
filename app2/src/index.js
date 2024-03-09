@@ -16,6 +16,7 @@ import AdminOrders from './AdminOrders';
 import AdminProducts from './AdminProducts';
 import AdminUsers from './AdminUsers';
 import AdminViewProduct from './AdminViewProduct';
+import AdminLogout from './AdminLogout';
 let NoPageFound = () => <h1>No Such Page Exist , Please Try Again!</h1>
 
 function MyRouter() {
@@ -35,6 +36,7 @@ function MyRouter() {
                 <Route path='/orders' element={<AdminOrders />} />
                 <Route path='/products' element={<AdminProducts />} />
                 <Route path='/users' element={<AdminUsers />} />
+                <Route path='/logout' element={<AdminLogout />} />
                 {/* we can give any name after : like here :productid */}
                 <Route path='/view-product/:productid' element={<AdminViewProduct />} />
                 <Route path='*' element={<NoPageFound />} />

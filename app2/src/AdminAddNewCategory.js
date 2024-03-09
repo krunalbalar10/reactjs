@@ -6,8 +6,11 @@ import ApiURL from "./Adminapi";
 import axios from "axios";
 import { ToastContainer } from "react-toastify";
 import showError, { NetworkError, showMessage } from "./toast-message";
+import VerifyLogin from "./VerifyLogin";
 
 export default function AdminAddNewCategory() {
+
+    VerifyLogin();
 
     let [title, setTitle] = useState('');
     let [photo, setPhoto] = useState('');

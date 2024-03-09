@@ -6,8 +6,12 @@ import ApiURL from "./Adminapi";
 import axios from "axios";
 import showError, {showMessage , NetworkError} from "./toast-message";
 import { ToastContainer } from "react-toastify";
+import VerifyLogin from "./VerifyLogin";
 
 export default function AdminAddNewProduct() {
+
+    VerifyLogin();
+
     //cerate state varible for input tag
     let [categoryid, setCategoryid] = useState('');
     let [title, setTitle] = useState('');
