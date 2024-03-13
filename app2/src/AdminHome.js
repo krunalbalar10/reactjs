@@ -10,7 +10,7 @@ import VerifyLogin from "./VerifyLogin";
 
 export default function AdminHome() {
 
-    VerifyLogin();
+    // VerifyLogin();
 
     let [dailySales , setDailySales] = useState('');
     let [weeklySales , setWeeklySales] = useState('');
