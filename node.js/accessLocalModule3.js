@@ -1,7 +1,6 @@
 var http = require('http');
 
-var exphasher = require('./passwordhasher');
-const exp = require('constants');
+var exphasher = require('./passwordhasher1');
 
 var server = http.createServer(function(request , response) {
     console.log("New request received")

@@ -1,5 +1,5 @@
 function getUrl() {
-    return "https://theeasylearnacademy.com/shop/"
+    return "https://dholerasmartcities.in/shop/"
 }
 
 export default function ApiURL() {

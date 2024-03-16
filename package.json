@@ -1,6 +1,8 @@
 {
   "dependencies": {
+    "argon2": "^0.40.1",
     "create-react-app": "^1.2.1",
+    "express": "^4.18.3",
     "js-cookie": "^3.0.5"
   }
 }
