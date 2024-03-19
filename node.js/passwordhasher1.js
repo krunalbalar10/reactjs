@@ -12,8 +12,18 @@ let hasher = {
         }
     },
 
-    Matchpassword: function(userGivenPassword , hashedPassword){
+    Matchpassword: async function (userGivenPassword , hashedPassword){
         let isPasswordMatched = false;
+        try{
+            if(await argon2.verify(hashedPassword , userGivenPassword)){
+                isPasswordMatched = true;
+            }
+            else{
+                isPasswordMatched = false;
+            }
+        } catch(error){
+            console.log(error);
+        }
         return isPasswordMatched;
     }
 }

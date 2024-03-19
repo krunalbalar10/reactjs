@@ -41,7 +41,7 @@ export default function AdminCategory() {
             <td>{item.id}</td>
             <td>{item.title}</td>
             <td width='30%'>
-                <img src={"https://theeasylearnacademy.com/shop/images/category/" + item.photo} className="img-fluid" alt />
+                <img src={"http://dholerasmartcities.in/shop/images/category/" + item.photo} className="img-fluid" alt />
             </td>
             <td>{(item.isLive === 1) ? 'Yes' : 'No'}</td>
             <td width="15%">

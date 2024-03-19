@@ -1,5 +1,5 @@
 function getUrl() {
-    return "https://dholerasmartcities.in/shop/"
+    return "http://dholerasmartcities.in/shop/"
 }
 
 export default function ApiURL() {

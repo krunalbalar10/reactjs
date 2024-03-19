@@ -9,12 +9,13 @@ import { ToastContainer } from "react-toastify";
 export default function AdminLogin() {
 
     let navigate = useNavigate();
+
+    //create cookie object and its methods 
+    let [cookies , setCookies , removeCookies] = useCookies(COOKIENAME);
+
     // cerate state variable
     let [email , setEmail] = useState();
     let [password , setPassword] = useState();
-
-     //create cookie object and its methods 
-    let [cookies , setCookies , removeCookies] = useCookies(COOKIENAME);
 
     let loginPage = function(event) {
         event.preventDefault();
@@ -42,13 +43,13 @@ export default function AdminLogin() {
                 if(success === 'no')
                     showError(message);
                 else
-                    showMessage(message);
+                    {showMessage(message);
                 //create cookies variable
                 setCookies('id' , response.data[3]['id'], {path:'/'});
 
                 setTimeout(() => {
                     navigate("/home");
-                } , 2000)
+                } , 2000)}
             }
         }).catch((error) => {
             if(error.code === 'ERR_NETWORK')
