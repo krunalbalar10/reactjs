@@ -94,7 +94,7 @@ export default function AdminAddNewProduct() {
               else {
                 showMessage(message);
                 setTimeout(() => {
-                  navigator("/product");
+                  navigator("/products");
                 }, 2000);
               }
             }

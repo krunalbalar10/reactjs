@@ -46,7 +46,7 @@ export default function AdminProducts() {
                 </td>
                 <td>
                     {/* we can use getimageurl function repeat code as we have used in admin view product */}
-                    <img src={"https://dholerasmartcities.in/shop/images/product/" + item.photo} className="img-fluid" alt />
+                    <img src={"http://dholerasmartcities.in/shop/images/product/" + item.photo} className="img-fluid" alt />
                 </td>
                 <td>{item.price}</td>
                 <td>{item.stock}</td>

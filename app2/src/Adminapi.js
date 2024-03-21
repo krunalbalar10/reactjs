@@ -13,4 +13,4 @@ export function getImageUrl() {
 }
 
 // name of the cookie file to be use everywhere
-export const COOKIENAME = ['theeasylearn'];
+export const COOKIENAME = ['dholerasmartcities'];

@@ -136,7 +136,7 @@ export default function AdminEditProduct() {
                 else {
                     showMessage(message);
                     setTimeout(() => {
-                        navigate("/product");
+                        navigate("/products");
                     }, 2000);
                 }
             }
