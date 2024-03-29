@@ -8,7 +8,7 @@ var server = http.createServer(function(request , response){
     var ip = request.socket.remoteAddress;
 
     var FileContent = `IP = ${ip} | Date = ${currentDateTime}`;
-    // var fileName = 'access.log';
+    var fileName = 'access.log';
     response.writeHead(200 , {'content-type':'text/html'});
     fs.writeFile(fileName , FileContent , function(error){
         if(error)
