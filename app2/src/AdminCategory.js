@@ -49,7 +49,7 @@ export default function AdminCategory() {
                     <i className="fa fa-pencil fa-2x" />
                 </Link>&nbsp;&nbsp;
                 <a href="#" onClick={(e) => { e.preventDefault(); deleteCategory(item.id);}}>
-                    <i className="fa fa-trash fa-2x" />
+                    <i className="fa fa-trash fa-2x" /> 
                 </a>
             </td>
         </tr>

@@ -56,7 +56,7 @@ export default function AdminAddNewCategory() {
                         navigator("/category");
                     }, 2000);
                 }
-            }
+            }   
         }).catch((error)=> {
             if(error.code === 'ERR_NETWORK')
             {

@@ -47,7 +47,7 @@ var server = http.createServer(function(request , response) {
             night: ["Kaal", "Rog", "Udveg", "Chal", "Labh", "Amrit", "Shubh", "Char"]
         })
     }
-    else
+    else if(url === '/saturday')
     {
         output = JSON.stringify({
             day: ["Amrit", "Shubh", "Labh", "Rog", "Udveg", "Chal", "Char", "Kaal"],

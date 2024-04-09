@@ -1,0 +1,45 @@
+
+
+-------------------------------------09/04/2024--------------------------------------------------------------
+
+how to insert new row/record into table?
+    to insert new row/records into table, we use insert into sql command. let us see syntax
+
+syntax 
+method 1
+insert into <tablename> values (value1,value2,value3....);
+
+example
+insert into admin values (0,'admin@gmail.com','123123');
+insert into admin values (0,'ankit@gmail.com','123123');
+insert into admin values (NULL,'diya@gmail.com','123123');
+
+method 2
+insert into <tablename> (<fieldname1>,<fieldname2>,<fieldname3>) values (value1,value2,value3);
+
+example
+insert into admin (email,password) values ('jiya@gmail.com','123123');
+insert into category (title,photo) values ('wafers','wafers.jpg');
+
+how to update existing row/record into table?
+to update existing row/record in table we use update command.
+syntax 
+update <tablename> set <fieldname>=value,<fieldname2>=value [where <condition>]
+example
+update admin set email='superadmin@gmail.com',password='112233'
+
+update creditlimit of customers, set it 2000000
+update customers set creditlimit=2000000
+
+increase creditlimit by 500000 of those customers whose customerNumber < 200
+update customers set creditlimit=creditlimit+500000 where customerNumber<200
+
+update customers' name to Ankit M Patel whost customersNumber is 103
+update customers set customerName='Ankit M Patel' where customerNumber=103
+
+update customers city to bhavnagar, state to gujarat, country to india of customer whose name is Ankit M Patel 
+
+update customers set city='bhavnagar',state='gujarat',country='india' where customerName='Ankit M Patel'
+
+update orderdate set it to 30-june-2003 of orderNumber 10100
+update orders set orderdate='2003-06-30' where orderNumber=10100
