@@ -1,6 +1,6 @@
 
 
--------------------------------------09/04/2024--------------------------------------------------------------
+-------------------------------------08/04/2024--------------------------------------------------------------
 
 how to insert new row/record into table?
     to insert new row/records into table, we use insert into sql command. let us see syntax
@@ -20,6 +20,7 @@ insert into <tablename> (<fieldname1>,<fieldname2>,<fieldname3>) values (value1,
 example
 insert into admin (email,password) values ('jiya@gmail.com','123123');
 insert into category (title,photo) values ('wafers','wafers.jpg');
+
 
 how to update existing row/record into table?
 to update existing row/record in table we use update command.
@@ -43,3 +44,55 @@ update customers set city='bhavnagar',state='gujarat',country='india' where cust
 
 update orderdate set it to 30-june-2003 of orderNumber 10100
 update orders set orderdate='2003-06-30' where orderNumber=10100
+
+--------------------------------------------------------------09/04/2024-----------------------------------------------------------
+
+how to delete row/record from table
+to delete row/record from table, we use delete from tablename sql command 
+
+syntax
+delete from <tablename> [where <condition>]
+
+delete all rows from category table. 
+delete from category
+
+delete only those rows from customer table in which country is india
+delete from customers where country='india'
+
+delete only those rows from customers table where country is australia and state is victoria and city is malbourne
+
+delete from customers where country='australia' and state='victoria' and city='malbourne'
+
+delete from customers table of those customers who are from spain or UK OR france.
+delete from customers where country='spain' or country='uk' or country='france'
+or
+
+delete from customers where country in ('spain','uk','france');
+
+how to delete all rows and reset primary key 
+to do so truncate table <tablename>
+truncate table category
+
+
+how to delete all rows and table.
+to do so drop table <tablename>
+drop table customers
+
+
+how to fetch records from table.
+to do so we use select * from tablename sql command.
+
+fetch all rows & all fields from customers
+select * from customers
+
+fetch only few fields
+select fieldname1,fieldname2,... from <tablename>
+
+fetch customerNumber,customerName,country,state,city from customers
+select customerNumber,customerName,country,state,city from customers
+
+limit no of rows fetched in select query 
+fetch 1st five customers
+select customerNumber,customerName,country,state,city from customers limit 0,5
+
+----------------------------------------------------10/04/2024--------------------------------------------------------------------
