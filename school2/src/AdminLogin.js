@@ -1,9 +1,6 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="container">
+export default function Login(){
+    return(
+        <div className="container">
   <div className="row">
     <div className="col-12">
       <div className="card shadow m-5">
@@ -39,7 +36,5 @@ function App() {
     </div>
   </div>
 </div>
-  );
+    )
 }
-
-export default App;
