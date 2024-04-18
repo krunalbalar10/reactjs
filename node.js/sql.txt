@@ -96,3 +96,172 @@ fetch 1st five customers
 select customerNumber,customerName,country,state,city from customers limit 0,5
 
 ----------------------------------------------------10/04/2024--------------------------------------------------------------------
+
+fetch next 5 customers
+select customerNumber,customerName,country,state,city from customers limit 5,5
+
+fetch all fields & all rows customerName wise ascending order 
+select * from customers order by customerName
+
+fetch customerNumber,customerName,country,state,city from customers in ascending order of country, state, city 
+select customerNumber,customerName,country,state,city from customers order by country,state,city 
+
+fetch customerNumber,customerName,country,state,city from customers in descending order of country, ascending order of state, descending order of city 
+
+select customerNumber,customerName,country,state,city from customers order by country desc,state asc, city desc
+
+fetch 10 customer's customerNumber,customerName,country,state,city from customers in descending order of country, ascending order of state, descending order of city 
+
+select customerNumber,customerName,country,state,city from customers order by country desc,state asc, city desc limit 0,10
+
+fetch customerNumber,customerName,country,state,city from customers table of those customer who are from usa
+select customerNumber,customerName,country,state,city from customers where country='usa'
+
+fetch 10 customers name wise, fetch their  customerNumber,customerName,country,state,city from customers table. customers should be from france 
+
+select customerNumber,customerName,country,state,city from customers where country='france' order by customerName limit 0,10
+
+select customerName and their creditlimit of those customers whose name has wheels at any position
+select customerName,creditlimit from customers where customerName like '%wheels%'
+
+------------------------------------------------------11/04/2000-------------------------------------------------------
+
+fetch customerName and number who are either from usa or france. display them in ascending order of name.
+
+select customerNumber,customerName,country from customers where country='usa' or country='france' order by customerName
+
+select customerNumber,customerName,country from customers where country in ('usa','france') order by customerName
+
+fetch customerName and number who are neither from usa nor france. display them in ascending order of name.
+
+select customerNumber,customerName,country from customers where country!='usa' and country!='france' order by customerName
+
+select customerNumber,customerName,country from customers where country not in('usa','france') order by customerName
+
+fetch customerName,customerNumber,creditlimit of those customers whose limit is between 200000 and 2500000
+
+select customerNumber,customerName,creditlimit from customers where creditlimit>=2000000 and creditlimit<=25000000
+
+select customerNumber,customerName,creditlimit from customers where creditlimit between 2000000 and 25000000
+
+agreegate function 
+    function which returns only single value is called agreegate function in sql. it works only on numeric fields.
+
+    sum()
+        return sum of given field 
+    example 
+    findout total of payments 
+        select sum(amount) from payments
+
+    avg()
+        findout average of payments 
+        select avg(amount) from payments
+
+    count()
+        count no of records 
+        select count(*) from payments
+
+    min()
+        findout minimum value of given field.
+        select min(amount) from payments
+
+    max()
+        findout maximum value of given field. 
+        select max(amount) from payments
+
+we can use agreegate function with where clause 
+
+findout total payment made by customerNumber 113
+select sum(amount),customerNumber from payments where customerNumber=113
+select IFNULL(sum(amount),0) as sum,customerNumber from payments where customerNumber=113
+
+findout total payment,average payments, no of payments made by customerNumber 112
+select sum(amount) as total,avg(amount) as average , count(*) from payments where customerNumber=112
+
+display sum of payments of each and every customerNumber
+select customerNumber,sum(amount) from payments group by customerNumber
+
+to apply condition on the value of group by clause result, we having caluse 
+display sum of payments of each and every customerNumber whose total payment is > 100000
+select customerNumber,sum(amount) from payments group by customerNumber having sum(amount)>100000
+
+----------------------------------------------------------------12/04/2024---------------------------------------------------
+
+join query
+-------------------------------------------------------------
+when we fetch data from more then one table it is called join query.
+fetch customerName,city,state,country and his payment details. 
+
+select customerName,city,state,country from customers c 
+select * from payments p
+
+select  customerName,city,state,country,p.* from customers c,payments p where  c.customerNumber=p.customerNumber
+
+fetch customerNumber,customerName and order details 
+select customerNumber,customerName from customers c
+select * from orders o
+
+select c.customerNumber,customerName, o.* from customers c, orders o where c.customerNumber=o.customerNumber
+
+fetch customerNumber,customerName and order details of order placed in 2004
+
+select c.customerNumber,customerName, o.* from customers c, orders o where c.customerNumber=o.customerNumber and orderdate>='2004-01-01' and orderdate<='2004-12-31'
+
+fetch customerNumber,customerName and his total payments 
+select customerNumber,customerName from customers c 
+select sum(amount) from payments 
+
+select c.customerNumber,customerName,sum(amount) from customers c, payments p where c.customerNumber=p.customerNumber group by c.customerNumber
+
+fetch customerNumber,customerName and its total order amount 
+select customerNumber,customerName from customers c 
+select orderNumber from orders o 
+select od.orderNumber,priceEach*quantityOrdered as total from orderdetails od
+
+
+select c.customerNumber,customerName,sum(priceEach*quantityOrdered) as total from customers c,orderdetails od, orders o where o.orderNumber=od.orderNumber and o.customerNumber=c.customerNumber group by c.customerNumber
+
+
+fetch customerNumber & customerName , his total order amount, total payment and pending amount 
+
+select c.customerNumber,customerName,sum(priceEach*quantityOrdered) as total from customers c,orderdetails od, orders o where o.orderNumber=od.orderNumber and o.customerNumber=c.customerNumber group by c.customerNumber
+
+select c.customerNumber,customerName,sum(amount) from customers c, payments p where c.customerNumber=p.customerNumber group by c.customerNumber
+
+select c.customerNumber,customerName,sum(priceEach*quantityOrdered) as order_amount ,sum(amount) as total_payment from customers c, orderdetails od, orders o, payments p where o.orderNumber=od.orderNumber and o.customerNumber=c.customerNumber and c.customerNumber=p.customerNumber group by c.customerNumber
+
+final query 
+SELECT 
+    customerNumber,
+    customerName,
+    order_amount,
+    total_payment,
+    order_amount - total_payment AS balance
+FROM (
+    SELECT 
+        c.customerNumber,
+        c.customerName,
+        SUM(priceEach * quantityOrdered) AS order_amount,
+        SUM(amount) AS total_payment
+    FROM 
+        customers c
+        JOIN orders o ON c.customerNumber = o.customerNumber
+        JOIN orderdetails od ON o.orderNumber = od.orderNumber
+        JOIN payments p ON c.customerNumber = p.customerNumber
+    GROUP BY 
+        c.customerNumber, c.customerName
+) AS subquery_alias;
+
+what are type types of join
+equi join 
+left join 
+right join 
+
+fetch customerName,city,state,country of those customer who has not made any payment details.
+select   customerName,city,state,country from customer c 
+select p.* from payments p 
+
+select  customerName,city,state,country,p.* from customers c left join payments p on c.customerNumber=p.customerNumber where amount is NULL
+
+fetch those payment not made by any customers
+select c.customerNumber,p.* from customers c right outer join payments p on c.customerNumber = p.customerNumber where c.customerNumber is NULL

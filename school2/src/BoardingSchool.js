@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import Header from "./Header";
+
 
 export default function BoardingSchool() {
     return(
@@ -17,22 +19,22 @@ export default function BoardingSchool() {
                 </span>Select City
               </a>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a className="dropdown-item" href="#">Bhavnagar</a></li>
-                <li><a className="dropdown-item" href="#">Ahemedabad</a></li>
-                <li><a className="dropdown-item" href="#">Vadodara</a></li>
-                <li><a className="dropdown-item" href="#">Rajkot</a></li>
-                <li><a className="dropdown-item" href="#">Junagath</a></li>
-                <li><a className="dropdown-item" href="#">Kutch</a></li>
+                <li><span className="dropdown-item">Bhavnagar</span></li>
+                <li><span className="dropdown-item">Ahemedabad</span></li>
+                <li><span className="dropdown-item">Vadodara</span></li>
+                <li><span className="dropdown-item">Rajkot</span></li>
+                <li><span className="dropdown-item">Junagath</span></li>
+                <li><span className="dropdown-item">Kutch</span></li>
               </ul>
             </li>
             <li className="nav-item ms-2 border-bottom">
-              <a className="nav-link" href="#">Explore Schools</a>
+              <Link className="nav-link" to="/exploreschool">Explore Schools</Link>
             </li>
             <li className="nav-item ms-2 border-bottom">
-              <a className="nav-link" href="#">Boarding Schools</a>
+              <Link className="nav-link" to="/boardingschool">Boarding Schools</Link>
             </li>
             <li className="nav-item ms-2 border-bottom">
-              <a className="nav-link" href="#">Compare Schools</a>
+              <Link className="nav-link" to="/compareschool">Compare Schools</Link>
             </li>
           </ul>
         </div>
@@ -42,11 +44,11 @@ export default function BoardingSchool() {
             <button className="btn btn-outline-success" type="submit">Search</button>
           </form>
           <button className="btn btn-primary">
-            Register
-          </button>
-          <button className="btn btn-primary">
-            Login
-          </button>
+                <Link to="/register"><span className="text-white">Register</span></Link>
+              </button>
+              <button className="btn btn-primary">
+                <Link to="/"><span className="text-white">Login</span></Link>
+              </button>
         </div>
       </nav>
       {/* navbar body */}

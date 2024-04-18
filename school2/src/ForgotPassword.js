@@ -1,3 +1,5 @@
+import logo from "./images/logo.jpeg";
+
 export default function ForgotPassword() {
     return(
         <div className="container">
@@ -6,7 +8,7 @@ export default function ForgotPassword() {
       <div className="card shadow m-5">
         <div className="card-body">
           <div className="d-flex justify-content-center">
-            <img src="images/logo.jpeg" width={70} height={70} alt />
+            <img src={logo} width={70} height={70} alt />
             <h3 className="text-center mt-3">The Good School Guide</h3>
           </div>
           <p className="text-center fs-5 mb-4">Forgot Password</p>

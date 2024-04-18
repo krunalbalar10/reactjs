@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+import logo from "./images/logo.jpeg"
+
 export default function ChangePassword(){
     return(
         <div className="container">
@@ -6,7 +9,7 @@ export default function ChangePassword(){
       <div className="card shadow m-5">
         <div className="card-body">
           <div className="d-flex justify-content-center">
-            <img src="images/logo.jpeg" width={70} height={70} alt />
+            <img src={logo} width={70} height={70} alt />
             <h3 className="text-center mt-3">The Good School Guide</h3>
           </div>
           <p className="text-center fs-5 mb-4">Change Password</p>
@@ -30,7 +33,7 @@ export default function ChangePassword(){
                 </div>
               </form>
               <div>
-                <p className="mt-3 text-end">Go back to <a className="btn btn-primary" href="login.html">Login</a></p>
+                <p className="mt-3 text-end">Go back to <Link className="btn btn-primary" to="/login">Login</Link></p>
               </div>
             </div>
           </div>
