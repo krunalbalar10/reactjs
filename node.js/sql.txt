@@ -265,3 +265,7 @@ select  customerName,city,state,country,p.* from customers c left join payments 
 
 fetch those payment not made by any customers
 select c.customerNumber,p.* from customers c right outer join payments p on c.customerNumber = p.customerNumber where c.customerNumber is NULL
+
+
+app password
+etcj akax xfzg naka

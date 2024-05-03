@@ -1,2 +1,2 @@
 cd node.js
-cd express
+cd mySQL
