@@ -75,7 +75,8 @@ export default function AdminViewProduct() {
                             <div className="card-body">
                                 <div className="row">
                                     <div className="col-sm-6 col-12">
-                                        <img src={getImageUrl() + "product/" + product.photo} className="img-fluid" />
+                                        {/* <img src={getImageUrl() + "product/" + product.photo} className="img-fluid" /> */}
+                                         <img src={`http://127.0.0.1:5000/mysql/images/product/${product.photo}`}className="img-fluid" />
                                     </div>
                                     <div className="col-sm-6 col-12">
                                         <table className="table table-bordered">

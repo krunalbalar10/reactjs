@@ -183,7 +183,8 @@ export default function AdminEditProduct() {
                                         <div className="row">
                                             <div className="col-3">
                                                 <b>Existing Photo</b> <br />
-                                                <img src={getImageUrl() + "product/" + oldPhoto} className="img-fluid" />
+                                                {/* <img src={getImageUrl() + "product/" + oldPhoto} className="img-fluid" /> */}
+                                                <img src={`http://127.0.0.1:5000/mysql/images/product/${oldPhoto}`} className="img-fluid" />
                                             </div>
                                             <div className="col-9">
                                                 <form onSubmit={updateProduct}>
