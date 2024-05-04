@@ -1,12 +1,17 @@
+var express = require('express');
 var connection = require('./connection');
+var app = express();
 var pswd = require("./passwordhasher1");
 var rd = require("./MyPasswordGenerator")
 const MyMail = require('./mymail'); // Or import MyMail from './mymail';
-const { request, response } = require('express');
 
+var body_parser = require("body-parser");
 var ROUTE = '/users';
 
-module.exports.insertUsers = function (request, response) {
+//set middleware
+app.use(body_parser.urlencoded({ extended: true }));
+
+app.post(ROUTE, function (request, response) {
     var email = request.body.email;
     var password = request.body.password;
     var mobile = request.body.mobile;
@@ -33,8 +38,9 @@ module.exports.insertUsers = function (request, response) {
         })
     }
 
-}
-module.exports.loginUsers = function (request, response) {
+})
+
+app.post("/login", function (request, response) {
     var password = request.body.password;
     var email = request.body.email;
 
@@ -68,42 +74,44 @@ module.exports.loginUsers = function (request, response) {
             }
         })
     }
-}
-module.exports.ChangePasswordUsers = function(request , response){
+});
 
-    // let id = request.body.id;
-   // let oldpassword = request.body.oldpassword;
-   // let newpassword = request.body.newpassword;
-   // or 
-   let { id, oldpassword, newpassword } = request.body;
+app.put(ROUTE , function(request , response){
 
-   let sql = `select password from users where id=${id}`;
-   connection.con.query(sql, async function (error, result) {
-       if (error) {
-           response.json([{ 'error': 'error occured' }]);
-       }
-       else {
-           let password = result[0]['password'];
-           let isPasswordMatched = await pwd.MatchPassword(oldpassword, password);
-           if (isPasswordMatched === false) {
-               response.json([{ 'error': 'no' }, { 'success': 'no' }, { 'message': 'invalid password' }]);
-           }
-           else {
-               let HashedPassword = await pwd.PasswordHash(newpassword)
-               sql = `update users set password='${HashedPassword}' where id=${id}`;
-               connection.con.query(sql, function (error, result) {
-                   if (error) {
-                       response.json([{ 'error': 'error occured' }]);
-                   }
-                   else {
-                       response.json([{ 'error': 'no' }, { 'success': 'yes' }, { 'message': 'password changed successfully' }]);
-                   }
-               });
-           }
-       }
-   })
-}
-module.exports.ForgotPasswordUsers = function (request, response) {
+     // let id = request.body.id;
+    // let oldpassword = request.body.oldpassword;
+    // let newpassword = request.body.newpassword;
+    // or 
+    let { id, oldpassword, newpassword } = request.body;
+
+    let sql = `select password from users where id=${id}`;
+    connection.con.query(sql, async function (error, result) {
+        if (error) {
+            response.json([{ 'error': 'error occured' }]);
+        }
+        else {
+            let password = result[0]['password'];
+            let isPasswordMatched = await pwd.MatchPassword(oldpassword, password);
+            if (isPasswordMatched === false) {
+                response.json([{ 'error': 'no' }, { 'success': 'no' }, { 'message': 'invalid password' }]);
+            }
+            else {
+                let HashedPassword = await pwd.PasswordHash(newpassword)
+                sql = `update users set password='${HashedPassword}' where id=${id}`;
+                connection.con.query(sql, function (error, result) {
+                    if (error) {
+                        response.json([{ 'error': 'error occured' }]);
+                    }
+                    else {
+                        response.json([{ 'error': 'no' }, { 'success': 'yes' }, { 'message': 'password changed successfully' }]);
+                    }
+                });
+            }
+        }
+    })
+})
+
+app.post("/forgot-password", function (request, response) {
 
     let email = request.body.email;
     let sql = `select * from users where email='${email}'`;
@@ -135,5 +143,6 @@ module.exports.ForgotPasswordUsers = function (request, response) {
             }
         }
     })
-}
-
+})
+app.listen(5000);
+console.log("server is ready");

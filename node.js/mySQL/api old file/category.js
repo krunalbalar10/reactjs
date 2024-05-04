@@ -1,7 +1,17 @@
+var express = require('express');
 var connection = require('./connection');
-const { request, response } = require("express");
+var body_parser = require("body-parser")
 
-module.exports.getCategory = function (request, response) {
+var app = express();
+var ROUTE = '/category';
+
+app.use(body_parser.urlencoded({ extended: true }))
+
+//used to get categories 
+//http://localhost:5000/category
+//input None
+//[{"error":"no"},{"total":3},{"id":4,"title":"tv","islive":1},{"id":3,"title":"watch","islive":1},{"id":2,"title":"books","islive":1}]
+app.get(ROUTE, function (request, response) {
     var sql = "select id , title , photo , islive, isdeleted from category where isdeleted=0 order by id desc";
     connection.con.query(sql, function (error, result, fields) {
         if (error) {
@@ -14,8 +24,9 @@ module.exports.getCategory = function (request, response) {
             response.send(data);
         }
     })
-}
-module.exports.insertCategory = function (request, response) {
+});
+
+app.post(ROUTE, function (request, response) {
     var title = request.body.title;
     var photo = request.body.photo;
 
@@ -33,8 +44,9 @@ module.exports.insertCategory = function (request, response) {
             }
         })
     }
-}
-module.exports.updateCategory = function (request, response) {
+})
+
+app.put(ROUTE, function (request, response) {
     var title = request.body.title;
     var photo = request.body.photo;
     var islive = request.body.islive;
@@ -56,8 +68,9 @@ module.exports.updateCategory = function (request, response) {
         })
     }
 
-}
-module.exports.deleteCategory = function (request, response) {
+})
+
+app.delete(ROUTE, function (request, response) {
     var id = request.body.id;
     if (id === undefined) {
         response.json([{ 'error': 'input missing' }])
@@ -73,4 +86,8 @@ module.exports.deleteCategory = function (request, response) {
             }
         })
     }
-}
+})
+
+
+app.listen(5000);
+console.log('Server is ready');
