@@ -1,2 +1,2 @@
 cd node.js
-cd mySQL
+cd mongodb
