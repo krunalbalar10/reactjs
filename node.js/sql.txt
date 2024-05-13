@@ -143,7 +143,7 @@ fetch customerName,customerNumber,creditlimit of those customers whose limit is 
 select customerNumber,customerName,creditlimit from customers where creditlimit>=2000000 and creditlimit<=25000000
 
 select customerNumber,customerName,creditlimit from customers where creditlimit between 2000000 and 25000000
-
+------------------------------------------------------------------------------
 agreegate function 
     function which returns only single value is called agreegate function in sql. it works only on numeric fields.
 
