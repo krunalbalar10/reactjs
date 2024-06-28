@@ -10,7 +10,7 @@ import VerifyLogin from "./VerifyLogin";
 
 export default function AdminEditCategory() {
 
-    VerifyLogin();
+    // VerifyLogin();
     
     let { categoryid } = useParams();
     // create a state arry

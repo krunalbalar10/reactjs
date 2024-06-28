@@ -10,7 +10,7 @@ import VerifyLogin from "./VerifyLogin";
 
 export default function AdminAddNewCategory() {
 
-    VerifyLogin();
+    // VerifyLogin();
 
     let [title, setTitle] = useState('');
     let [photo, setPhoto] = useState('');

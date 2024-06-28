@@ -10,7 +10,7 @@ import VerifyLogin from "./VerifyLogin";
 
 export default function AdminAddNewProduct() {
 
-    VerifyLogin();
+    // VerifyLogin();
 
     //cerate state varible for input tag
     let [categoryid, setCategoryid] = useState('');

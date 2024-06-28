@@ -10,7 +10,7 @@ import VerifyLogin from "./VerifyLogin";
 
 export default function AdminCategory() {
 
-    VerifyLogin();
+    // VerifyLogin();
 
     let deleteCategory = function(id){
         console.log(id);
